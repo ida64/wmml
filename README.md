@@ -12,7 +12,6 @@ abstract memory manipulation library for Windows.
 WMML uses Google's [GoogleTest](https://github.com/google/googletest) library for testing and example usage.
 
 ![Unit Testing with gtest](https://i.ibb.co/HYR8Q7y/image.png)
-## Running Tests
 
 To run tests, build with `UnitTest_x64` or `UnitTest_x86` platforms and run the resulting unit test binary.
 
