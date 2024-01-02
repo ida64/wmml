@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Visual Studio project files, we have premake5 to handle this.
+*.sln
+*.vcxproj
+*.vcxproj.user
