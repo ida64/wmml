@@ -7,6 +7,10 @@
 
 namespace wmml
 {
+    /**
+     * @brief DefaultAdapter is a default implementation of MemoryAdapter.
+     *        It uses ReadProcessMemory and WriteProcessMemory to read and write memory.
+     */
     struct DefaultAdapter : public MemoryAdapter
     {
         DefaultAdapter() = default;
