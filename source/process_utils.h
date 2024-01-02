@@ -9,6 +9,11 @@
 
 namespace wmml
 {
+    /**
+    * @brief GetProcessIdByName
+     * @param process_name
+     * @return Process ID if found, std::nullopt otherwise
+     */
     std::optional<DWORD> GetProcessIdByName(std::wstring process_name);
 
 } // namespace wmml

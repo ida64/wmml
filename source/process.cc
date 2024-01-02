@@ -41,7 +41,7 @@ namespace wmml
         return true;
     }
 
-    bool Process::Update()
+    bool Process::Update(MemoryAdapterPtr memory_adapter)
     {
         DWORD full_image_name_length = this->kFullImageNameLength;
 
@@ -60,6 +60,11 @@ namespace wmml
         full_image_name.resize(full_image_name_length);
 
         this->full_image_name_ = std::move(full_image_name);
+
+        if(memory_adapter != nullptr)
+        {
+            this->memory_adapter_ = memory_adapter;
+        }
 
         return true;
     }

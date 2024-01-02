@@ -14,7 +14,7 @@ project "WMML"
     targetdir "bin/%{cfg.buildcfg}"
     cppdialect "C++17"
 
-    files {"**.h", "**.cpp", "**.cc"}
+    files {"**.h", "**.cpp", "**.cc", "**.inl"}
 
     filter "configurations:Debug"
         defines {"DEBUG"}

@@ -7,6 +7,27 @@
 #include <Windows.h>
 #include <TlHelp32.h>
 
+#include "memory_adapter.h"
+
+/*
+* Process represents a running process on the system.
+* It is used to read/write memory and retrieve information about the process.
+* 
+    std::unique_ptr<Process> process = std::make_unique<Process>();
+    std::shared_ptr<DefaultAdapter> memory_adapter
+        = std::make_shared<DefaultAdapter>();
+
+    if(!process->OpenProcess(process_id, PROCESS_ALL_ACCESS))
+    {
+    ...
+    }
+
+    if(!process->Update(memory_adapter))
+    {
+    ...
+    }
+*/
+
 namespace wmml
 {
     class Process
@@ -35,15 +56,28 @@ namespace wmml
 
         /**
         * @brief update process information
+        * @param [optional] memory_adapter memory adapter to use for reading/writing
         * @return true if successful, false otherwise
         */
-        bool Update();
+        bool Update(MemoryAdapterPtr memory_adapter = nullptr);
 
         /**
         * @brief retrieve full_image_name_ member variable
         * @return full image name of the process
         */
         inline std::string GetFullImageName() const;
+
+        /**
+        * @brief retrieve process_handle_ member variable
+        * @return process handle
+        */
+        inline HANDLE GetProcessHandle() const;
+
+        /**
+        * @brief retrieve memory_adapter_ member variable
+        * @return memory adapter
+        */
+        inline MemoryAdapterPtr GetMemoryAdapter() const;
 
     private: // Private Member Variables
         HANDLE process_handle_ = nullptr;
@@ -55,6 +89,12 @@ namespace wmml
         static constexpr int kFullImageNameLength = 256;
 
         std::string full_image_name_;
+
+        /**
+        * @brief memory adapter to use for reading/writing
+        * @note call Update to set this field (required for R/W)
+        */
+        MemoryAdapterPtr memory_adapter_ = nullptr;
 
     }; // class Process
 
