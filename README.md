@@ -2,11 +2,6 @@
 # Windows Memory Manipulation Library (WMML)
 
 abstract memory manipulation library for Windows.
-## Features
-
-- Adapter based memory interface
-- Various process utilities
-- Well-Commented code with unit testing
 ## Demo
 
 WMML uses Google's [GoogleTest](https://github.com/google/googletest) library for testing and example usage.
@@ -33,6 +28,10 @@ if(!process->Update(memory_adapter))
 ...
 }
 ```
+
+## Building
+
+You can use the [premake5](https://premake.github.io/) generator to create the project files required to build WMML.
 
 ## Authors
 
