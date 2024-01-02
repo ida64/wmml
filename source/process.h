@@ -8,6 +8,7 @@
 #include <TlHelp32.h>
 
 #include "memory_adapter.h"
+#include "module.h"
 
 /*
 * Process represents a running process on the system.
@@ -95,6 +96,8 @@ namespace wmml
         * @note call Update to set this field (required for R/W)
         */
         MemoryAdapterPtr memory_adapter_ = nullptr;
+
+        std::vector<std::unique_ptr<Module>> modules_;
 
     }; // class Process
 

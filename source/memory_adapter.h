@@ -4,6 +4,8 @@
 #include <memory>
 #include <Windows.h>
 
+#include "module.h"
+
 namespace wmml
 {
     using MemoryAdapterPtr = std::shared_ptr<class MemoryAdapter>;
@@ -32,6 +34,13 @@ namespace wmml
         * @return The number of bytes written.
         */
         virtual SIZE_T Write(const LPVOID address, LPCVOID buffer, SIZE_T size) const = 0;
+
+        /**
+        * @brief Enumerate the modules in the process.
+        * @param modules The vector to store the modules.
+        * @return True if the modules are enumerated successfully.
+        */
+        virtual bool EnumerateModules(std::vector<std::unique_ptr<Module>>& modules) const = 0;
 
     public: // Public Template Member Functions
         /**
